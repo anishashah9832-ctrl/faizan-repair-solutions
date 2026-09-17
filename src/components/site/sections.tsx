@@ -177,7 +177,7 @@ export function ServicesGrid({
 /* ------------------------------- Featured AC ------------------------------ */
 
 export function FeaturedAC() {
-  const ac = services[0];
+  const ac = services[0]!;
   return (
     <section className="bg-navy text-navy-foreground">
       <div className="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
