@@ -1,5 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { AboutSection, WhyChooseUs, FinalCTA } from "@/components/site/sections";
 
 const title = "About Us | Faizan Repairing Centre and Home Appliances";
@@ -24,10 +27,22 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <Layout>
-      <PageHeader
-        eyebrow="About"
-        title="Professional Service Built Around Your Needs"
-        description="A local repair centre in Rawalpindi focused on reliable work, reasonable charges and easy communication."
+      <PageHero
+        eyebrow="About Faizan Repairing Centre"
+        title="Professional Service. Straightforward Solutions."
+        description="Providing appliance, AC and electronics repair services in Rawalpindi and Islamabad."
+        image={heroImages.about}
+        imageAlt={heroAlt.about}
+        breadcrumb={{ label: "About", to: "/about" }}
+        priority
+        actions={
+          <Link
+            to="/contact"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
+          >
+            Contact Us <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        }
       />
       <AboutSection />
       <WhyChooseUs />

@@ -1,5 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServicesGrid, FeaturedAC, HowItWorks, FinalCTA } from "@/components/site/sections";
 
 const title = "Our Services | AC, Refrigerator & Appliance Repair Rawalpindi";
@@ -24,10 +27,22 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <Layout>
-      <PageHeader
-        eyebrow="Services"
-        title="Appliance, AC & Electronics Repair Services"
-        description="Professional repair, installation and maintenance services for the home appliances and electronics you rely on every day."
+      <PageHero
+        eyebrow="Our Services"
+        title="Expert Care for Your Essential Appliances"
+        description="Repair, installation and maintenance services for ACs, home appliances and electronics."
+        image={heroImages.services}
+        imageAlt={heroAlt.services}
+        breadcrumb={{ label: "Services", to: "/services" }}
+        priority
+        actions={
+          <Link
+            to="/request-service"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
+          >
+            Request Service <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        }
       />
       <ServicesGrid
         heading="What We Repair"

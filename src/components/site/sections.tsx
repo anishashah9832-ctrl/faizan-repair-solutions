@@ -21,6 +21,9 @@ import {
 import { useState } from "react";
 import heroImg from "@/assets/hero.png.asset.json";
 import ownerImg from "@/assets/owner.png.asset.json";
+import { PageHero } from "./PageHero";
+import { Reveal } from "./Reveal";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { business, services, faqs, waGeneral, waLink, type Service } from "@/lib/business";
 
 /* ---------------------------------- Hero --------------------------------- */

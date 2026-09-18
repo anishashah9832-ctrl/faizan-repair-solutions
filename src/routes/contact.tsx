@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { Phone, MessageCircle } from "lucide-react";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ContactSection, FAQ, FinalCTA } from "@/components/site/sections";
+import { business, waGeneral } from "@/lib/business";
 
 const title = "Contact | Faizan Repairing Centre, Rawalpindi";
 const description =
@@ -24,10 +28,32 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <Layout>
-      <PageHeader
-        eyebrow="Contact"
-        title="Get in Touch"
-        description="Call, WhatsApp or email us with your appliance repair requirement."
+      <PageHero
+        eyebrow="Get in Touch"
+        title="Need Appliance Repair?"
+        description="Call or message us to discuss your appliance repair requirement."
+        image={heroImages.contact}
+        imageAlt={heroAlt.contact}
+        breadcrumb={{ label: "Contact", to: "/contact" }}
+        priority
+        actions={
+          <>
+            <a
+              href={business.phoneHref}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" /> Call Now
+            </a>
+            <a
+              href={waGeneral}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-whatsapp px-7 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp Us
+            </a>
+          </>
+        }
       />
       <ContactSection />
       <FAQ />
