@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { Navigation } from "lucide-react";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServiceAreasSection, FinalCTA } from "@/components/site/sections";
+import { business } from "@/lib/business";
 
 const title = "Service Areas | Appliance Repair Rawalpindi & Islamabad";
 const description =
@@ -24,10 +28,24 @@ export const Route = createFileRoute("/service-areas")({
 function ServiceAreasPage() {
   return (
     <Layout>
-      <PageHeader
-        eyebrow="Service Areas"
+      <PageHero
+        eyebrow="Local Service"
         title="Serving Rawalpindi & Islamabad"
-        description="Find our location, get directions and contact us for appliance repair support in your area."
+        description="Find our location at Noor Plaza, Chandani Chowk, Rawalpindi."
+        image={heroImages.serviceAreas}
+        imageAlt={heroAlt.serviceAreas}
+        breadcrumb={{ label: "Service Areas", to: "/service-areas" }}
+        priority
+        actions={
+          <a
+            href={business.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
+          >
+            <Navigation className="h-4 w-4" aria-hidden="true" /> Get Directions
+          </a>
+        }
       />
       <ServiceAreasSection />
       <FinalCTA />

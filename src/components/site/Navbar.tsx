@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
@@ -15,6 +15,8 @@ const nav = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const overHero = pathname === "/" && !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -25,10 +27,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border bg-card/95 shadow-card backdrop-blur"
-          : "border-b border-transparent bg-card"
+      className={`${pathname === "/" ? "fixed" : "sticky"} inset-x-0 top-0 z-50 transition-all duration-300 ${
+        overHero
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-border bg-card/95 shadow-card backdrop-blur"
       }`}
     >
       <div className="container-page grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3">
@@ -36,7 +38,9 @@ export function Navbar() {
           <img
             src={logo.url}
             alt={`${business.name} logo`}
-            className="h-11 w-auto shrink-0 md:h-12"
+            className={`h-11 w-auto shrink-0 rounded-md md:h-12 ${
+              overHero ? "bg-white/95 px-2 py-1 shadow-card" : ""
+            }`}
             width={240}
             height={48}
           />

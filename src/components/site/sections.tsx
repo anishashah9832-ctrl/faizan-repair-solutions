@@ -21,74 +21,53 @@ import {
 import { useState } from "react";
 import heroImg from "@/assets/hero.png.asset.json";
 import ownerImg from "@/assets/owner.png.asset.json";
+import { PageHero } from "./PageHero";
+import { Reveal } from "./Reveal";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { business, services, faqs, waGeneral, waLink, type Service } from "@/lib/business";
 
 /* ---------------------------------- Hero --------------------------------- */
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy text-navy-foreground">
-      <div className="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2 lg:gap-14">
-        <div className="reveal">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
-            Professional Appliance &amp; Electronics Repair
-          </p>
-          <h1 className="mt-4 font-display text-[2rem] font-extrabold leading-[1.1] sm:text-4xl lg:text-[3.25rem]">
-            Reliable Repair for the Appliances You Depend On.
-          </h1>
-          <p className="mt-4 font-display text-lg font-semibold text-cyan/90 md:text-xl">
-            Professional Appliance, AC &amp; Electronics Repair in Rawalpindi &amp; Islamabad
-          </p>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-navy-foreground/75">
-            {business.name} provides professional repair, AC installation, maintenance and
-            electronics services with a focus on reliable work, reasonable charges and customer
-            satisfaction.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              to="/request-service"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
-            >
-              Request Repair <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <a
-              href={waGeneral}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-whatsapp px-6 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
-            >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp Us
-            </a>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-6 text-sm">
-            <a
-              href={business.phoneHref}
-              className="inline-flex items-center gap-2 font-display text-lg font-bold"
-            >
-              <Phone className="h-4 w-4 text-cyan" aria-hidden="true" /> {business.phoneDisplay}
-            </a>
-            <span className="inline-flex items-center gap-2 text-navy-foreground/75">
-              <Clock className="h-4 w-4 text-cyan" aria-hidden="true" /> {business.hours}
-            </span>
-          </div>
-        </div>
-
-        <div className="reveal">
-          <div className="overflow-hidden rounded-xl border border-white/10 shadow-lift">
-            <img
-              src={heroImg.url}
-              alt="Modern kitchen with refrigerator, washing machine, microwave, oven and kitchen hood serviced by Faizan Repairing Centre"
-              className="h-full w-full object-cover"
-              width={1680}
-              height={945}
-              fetchPriority="high"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      variant="home"
+      priority
+      eyebrow="Professional Appliance & Electronics Repair"
+      title="Reliable Repair for the Appliances You Depend On."
+      description="Professional appliance, AC and electronics repair services in Rawalpindi & Islamabad."
+      image={heroImages.home}
+      imageAlt={heroAlt.home}
+      scrollHint="Explore Services"
+      actions={
+        <>
+          <Link
+            to="/request-service"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110"
+          >
+            Request Repair <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          <a
+            href={waGeneral}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-whatsapp px-7 py-3.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp Us
+          </a>
+        </>
+      }
+      meta={
+        <>
+          <a href={business.phoneHref} className="inline-flex items-center gap-2 font-display font-bold">
+            <Phone className="h-4 w-4 text-cyan" aria-hidden="true" /> {business.phoneDisplay}
+          </a>
+          <span className="inline-flex items-center gap-2">
+            <Clock className="h-4 w-4 text-cyan" aria-hidden="true" /> {business.hours}
+          </span>
+        </>
+      }
+    />
   );
 }
 

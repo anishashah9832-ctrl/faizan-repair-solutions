@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { MessageCircle, Phone, Clock, MapPin } from "lucide-react";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { business, applianceOptions, waLink } from "@/lib/business";
 
 const title = "Request Service | Appliance & AC Repair Rawalpindi";
@@ -52,10 +54,14 @@ function RequestServicePage() {
 
   return (
     <Layout>
-      <PageHeader
+      <PageHero
         eyebrow="Request Service"
-        title="Request Appliance Repair"
-        description="Fill in a few details and your request opens directly in WhatsApp, ready to send."
+        title="Tell Us What Needs Repair"
+        description="Send us your appliance details and describe the problem."
+        image={heroImages.requestService}
+        imageAlt={heroAlt.requestService}
+        breadcrumb={{ label: "Request Service", to: "/request-service" }}
+        priority
       />
 
       <section className="section-y">
