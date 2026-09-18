@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { MessageCircle, Phone, Clock, MapPin } from "lucide-react";
-import { Layout, PageHeader } from "@/components/site/Layout";
+import { Layout } from "@/components/site/Layout";
+import { PageHero } from "@/components/site/PageHero";
+import { heroImages, heroAlt } from "@/lib/hero-content";
 import { business, applianceOptions, waLink } from "@/lib/business";
 
 const title = "Request Service | Appliance & AC Repair Rawalpindi";
