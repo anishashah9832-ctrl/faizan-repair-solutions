@@ -121,6 +121,47 @@
   animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Scroll reveal: elements start hidden and animate in when observed */
+@utility reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+@utility is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@utility hero-overlay {
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--navy) 72%, transparent) 0%,
+      color-mix(in oklab, var(--navy) 62%, transparent) 40%,
+      color-mix(in oklab, var(--navy) 86%, transparent) 100%
+    );
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@utility scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
