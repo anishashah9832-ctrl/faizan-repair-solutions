@@ -4,7 +4,6 @@ import {
   WashingMachine,
   CookingPot,
   Microwave,
-  Monitor,
   Droplets,
   Flame,
   Fan,
@@ -158,13 +157,24 @@ export const services: Service[] = [
   ),
 ];
 
+/** Services featured on the home page, in display order. */
+export const homeServiceSlugs = [
+  "washing-machine-repair",
+  "ac-repair-installation",
+  "refrigerator-repair",
+  "stove-cooking-range",
+] as const;
+
+export const homeServices: Service[] = homeServiceSlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is Service => Boolean(s));
+
 export const applianceOptions = [
+  "Auto Washing Machine",
   "AC",
   "Refrigerator",
-  "Washing Machine",
   "Oven",
   "Microwave",
-  "LED / LCD",
   "Geyser",
   "Stove / Cooking Range",
   "Kitchen Hood",
@@ -174,7 +184,7 @@ export const applianceOptions = [
 export const faqs = [
   {
     q: "What appliances do you repair?",
-    a: "We provide repair services for ACs, refrigerators, washing machines, ovens, microwaves, LED/LCD TVs, geysers, stoves, cooking ranges, kitchen hoods and other kitchen appliances.",
+    a: "We provide repair services for automatic washing machines, ACs, refrigerators, ovens, microwaves, geysers, stoves, cooking ranges, kitchen hoods and other kitchen appliances.",
   },
   {
     q: "Do you provide AC installation?",
@@ -187,7 +197,7 @@ export const faqs = [
   { q: "Are you available 24/7?", a: "The business is available 24/7." },
   {
     q: "Where are you located?",
-    a: "We are located at Noor Plaza, Chandani Chowk, Rawalpindi, Pakistan.",
+    a: "We are located at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi.",
   },
   {
     q: "Can I contact you through WhatsApp?",
