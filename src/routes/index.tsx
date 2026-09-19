@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
+import { homeServices } from "@/lib/business";
 import {
   Hero,
   TrustBar,
@@ -15,7 +17,7 @@ import {
 
 const title = "Appliance Repair Rawalpindi | Faizan Repairing Centre & Home Appliances";
 const description =
-  "Professional appliance, AC and electronics repair in Rawalpindi & Islamabad. AC repair & installation, refrigerator, washing machine, LED/LCD, geyser and kitchen appliance repair. Available 24/7.";
+  "Professional appliance, AC and electronics repair in Rawalpindi & Islamabad. Auto washing machine, AC repair & installation, refrigerator, geyser and kitchen appliance repair. Available 24/7.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,15 +38,33 @@ function Index() {
   return (
     <Layout>
       <Hero />
-      <TrustBar />
-      <ServicesGrid />
-      <FeaturedAC />
-      <HowItWorks />
-      <WhyChooseUs />
-      <AboutSection />
-      <ServiceAreasSection />
-      <FAQ />
-      <FinalCTA />
+      <Reveal>
+        <TrustBar />
+      </Reveal>
+      <Reveal>
+        <ServicesGrid items={homeServices} />
+      </Reveal>
+      <Reveal>
+        <FeaturedAC />
+      </Reveal>
+      <Reveal>
+        <HowItWorks />
+      </Reveal>
+      <Reveal>
+        <WhyChooseUs />
+      </Reveal>
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <ServiceAreasSection />
+      </Reveal>
+      <Reveal>
+        <FAQ />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }

@@ -7,7 +7,7 @@ import { ServicesGrid, FeaturedAC, HowItWorks, FinalCTA } from "@/components/sit
 
 const title = "Our Services | AC, Refrigerator & Appliance Repair Rawalpindi";
 const description =
-  "AC repair & installation, refrigerator, washing machine, oven, microwave, LED/LCD, geyser, stove and kitchen appliance repair services in Rawalpindi & Islamabad.";
+  "Auto washing machine, AC repair & installation, refrigerator, oven, microwave, geyser, stove and kitchen appliance repair services in Rawalpindi & Islamabad.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
