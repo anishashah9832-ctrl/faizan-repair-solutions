@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { AboutSection, WhyChooseUs, FinalCTA } from "@/components/site/sections";
@@ -44,9 +45,13 @@ function AboutPage() {
           </Link>
         }
       />
-      <AboutSection />
+      <Reveal>
+        <AboutSection />
+      </Reveal>
       <WhyChooseUs />
-      <FinalCTA />
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }

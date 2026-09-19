@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServicesGrid, FeaturedAC, HowItWorks, FinalCTA } from "@/components/site/sections";
@@ -44,13 +45,21 @@ function ServicesPage() {
           </Link>
         }
       />
-      <ServicesGrid
-        heading="What We Repair"
-        subheading="Choose a service below and send us the details directly on WhatsApp."
-      />
-      <FeaturedAC />
-      <HowItWorks />
-      <FinalCTA />
+      <Reveal>
+        <ServicesGrid
+          heading="What We Repair"
+          subheading="Choose a service below and send us the details directly on WhatsApp."
+        />
+      </Reveal>
+      <Reveal>
+        <FeaturedAC />
+      </Reveal>
+      <Reveal>
+        <HowItWorks />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }

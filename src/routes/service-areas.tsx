@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navigation } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServiceAreasSection, FinalCTA } from "@/components/site/sections";
@@ -47,8 +48,12 @@ function ServiceAreasPage() {
           </a>
         }
       />
-      <ServiceAreasSection />
-      <FinalCTA />
+      <Reveal>
+        <ServiceAreasSection />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }
