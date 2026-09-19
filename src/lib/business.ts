@@ -4,7 +4,6 @@ import {
   WashingMachine,
   CookingPot,
   Microwave,
-  Monitor,
   Droplets,
   Flame,
   Fan,
@@ -20,8 +19,8 @@ export const business = {
   email: "faizanwatto302@gmail.com",
   emailHref: "mailto:faizanwatto302@gmail.com",
   whatsappNumber: "923116568906",
-  address: "Noor Plaza, Chandani Chowk, Rawalpindi, Pakistan",
-  addressShort: "Noor Plaza, Chandani Chowk, Rawalpindi",
+  address: "Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi",
+  addressShort: "Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi",
   hours: "Available 24/7",
   mapsUrl:
     "https://www.google.com/maps/place/Noor+Plaza/@33.5987506,73.0442271,13z/data=!4m10!1m2!2m1!1sNoor+Plaza+Chandani+Chowk+Rawalpindi!3m6!1s0x38df94dbbfdfd173:0x4d06a8901446c3f6!8m2!3d33.6312326!4d73.0714716!15sCiROb29yIFBsYXphIENoYW5kYW5pIENob3drIFJhd2FscGluZGlaJiIkbm9vciBwbGF6YSBjaGFuZGFuaSBjaG93ayByYXdhbHBpbmRpYQ%3D%3D?entry=ttu",
@@ -70,6 +69,16 @@ const s = (
 
 export const services: Service[] = [
   s(
+    "washing-machine-repair",
+    "Auto Washing Machine Repair",
+    "Repair, troubleshooting and maintenance for automatic washing machines.",
+    "Auto washing machine repair, fault troubleshooting and general maintenance service.",
+    ["Washing Machine Repair", "Troubleshooting", "General Maintenance"],
+    WashingMachine,
+    "Request Washing Machine Service",
+    "Hello Faizan Repairing Centre, I need auto washing machine repair service. Please guide me.",
+  ),
+  s(
     "ac-repair-installation",
     "AC Repair & Installation",
     "Professional AC repair, installation and maintenance services.",
@@ -97,16 +106,6 @@ export const services: Service[] = [
     "Hello Faizan Repairing Centre, I need refrigerator repair service. Please guide me.",
   ),
   s(
-    "washing-machine-repair",
-    "Washing Machine Repair",
-    "Repair, troubleshooting and maintenance for washing machines.",
-    "Washing machine repair, fault troubleshooting and general maintenance service.",
-    ["Washing Machine Repair", "Troubleshooting", "General Maintenance"],
-    WashingMachine,
-    "Request Washing Machine Service",
-    "Hello Faizan Repairing Centre, I need washing machine repair service. Please guide me.",
-  ),
-  s(
     "oven-repair",
     "Oven Repair",
     "Oven repair, troubleshooting and maintenance.",
@@ -125,16 +124,6 @@ export const services: Service[] = [
     Microwave,
     "Request Microwave Service",
     "Hello Faizan Repairing Centre, I need microwave repair service. Please guide me.",
-  ),
-  s(
-    "led-lcd-repair",
-    "LED / LCD Repair",
-    "LED and LCD television repair and electronics troubleshooting.",
-    "LED repair, LCD repair, general TV repair and electronics troubleshooting.",
-    ["LED Repair", "LCD Repair", "Electronics Troubleshooting", "General TV repair"],
-    Monitor,
-    "Request LED / LCD Service",
-    "Hello Faizan Repairing Centre, I need LED/LCD repair service. Please guide me.",
   ),
   s(
     "geyser-repair",
@@ -168,13 +157,24 @@ export const services: Service[] = [
   ),
 ];
 
+/** Services featured on the home page, in display order. */
+export const homeServiceSlugs = [
+  "washing-machine-repair",
+  "ac-repair-installation",
+  "refrigerator-repair",
+  "stove-cooking-range",
+] as const;
+
+export const homeServices: Service[] = homeServiceSlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is Service => Boolean(s));
+
 export const applianceOptions = [
+  "Auto Washing Machine",
   "AC",
   "Refrigerator",
-  "Washing Machine",
   "Oven",
   "Microwave",
-  "LED / LCD",
   "Geyser",
   "Stove / Cooking Range",
   "Kitchen Hood",
@@ -184,7 +184,7 @@ export const applianceOptions = [
 export const faqs = [
   {
     q: "What appliances do you repair?",
-    a: "We provide repair services for ACs, refrigerators, washing machines, ovens, microwaves, LED/LCD TVs, geysers, stoves, cooking ranges, kitchen hoods and other kitchen appliances.",
+    a: "We provide repair services for automatic washing machines, ACs, refrigerators, ovens, microwaves, geysers, stoves, cooking ranges, kitchen hoods and other kitchen appliances.",
   },
   {
     q: "Do you provide AC installation?",
@@ -197,7 +197,7 @@ export const faqs = [
   { q: "Are you available 24/7?", a: "The business is available 24/7." },
   {
     q: "Where are you located?",
-    a: "We are located at Noor Plaza, Chandani Chowk, Rawalpindi, Pakistan.",
+    a: "We are located at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi.",
   },
   {
     q: "Can I contact you through WhatsApp?",

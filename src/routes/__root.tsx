@@ -108,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           email: "faizanwatto302@gmail.com",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Noor Plaza, Chandani Chowk",
+            streetAddress: "Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk",
             addressLocality: "Rawalpindi",
             addressCountry: "PK",
           },

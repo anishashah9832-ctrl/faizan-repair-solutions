@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServicesGrid, FeaturedAC, HowItWorks, FinalCTA } from "@/components/site/sections";
 
 const title = "Our Services | AC, Refrigerator & Appliance Repair Rawalpindi";
 const description =
-  "AC repair & installation, refrigerator, washing machine, oven, microwave, LED/LCD, geyser, stove and kitchen appliance repair services in Rawalpindi & Islamabad.";
+  "Auto washing machine, AC repair & installation, refrigerator, oven, microwave, geyser, stove and kitchen appliance repair services in Rawalpindi & Islamabad.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -44,13 +45,21 @@ function ServicesPage() {
           </Link>
         }
       />
-      <ServicesGrid
-        heading="What We Repair"
-        subheading="Choose a service below and send us the details directly on WhatsApp."
-      />
-      <FeaturedAC />
-      <HowItWorks />
-      <FinalCTA />
+      <Reveal>
+        <ServicesGrid
+          heading="What We Repair"
+          subheading="Choose a service below and send us the details directly on WhatsApp."
+        />
+      </Reveal>
+      <Reveal>
+        <FeaturedAC />
+      </Reveal>
+      <Reveal>
+        <HowItWorks />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }

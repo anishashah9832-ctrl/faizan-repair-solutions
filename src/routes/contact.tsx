@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ContactSection, FAQ, FinalCTA } from "@/components/site/sections";
@@ -55,9 +56,15 @@ function ContactPage() {
           </>
         }
       />
-      <ContactSection />
-      <FAQ />
-      <FinalCTA />
+      <Reveal>
+        <ContactSection />
+      </Reveal>
+      <Reveal>
+        <FAQ />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }

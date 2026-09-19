@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navigation } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
+import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { heroImages, heroAlt } from "@/lib/hero-content";
 import { ServiceAreasSection, FinalCTA } from "@/components/site/sections";
@@ -8,7 +9,7 @@ import { business } from "@/lib/business";
 
 const title = "Service Areas | Appliance Repair Rawalpindi & Islamabad";
 const description =
-  "Located at Noor Plaza, Chandani Chowk, Rawalpindi. We provide appliance, AC and electronics repair services for customers across Rawalpindi and Islamabad.";
+  "Located at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi. We provide appliance, AC and electronics repair services for customers across Rawalpindi and Islamabad.";
 
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
@@ -31,7 +32,7 @@ function ServiceAreasPage() {
       <PageHero
         eyebrow="Local Service"
         title="Serving Rawalpindi & Islamabad"
-        description="Find our location at Noor Plaza, Chandani Chowk, Rawalpindi."
+        description="Find our location at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi."
         image={heroImages.serviceAreas}
         imageAlt={heroAlt.serviceAreas}
         breadcrumb={{ label: "Service Areas", to: "/service-areas" }}
@@ -47,8 +48,12 @@ function ServiceAreasPage() {
           </a>
         }
       />
-      <ServiceAreasSection />
-      <FinalCTA />
+      <Reveal>
+        <ServiceAreasSection />
+      </Reveal>
+      <Reveal>
+        <FinalCTA />
+      </Reveal>
     </Layout>
   );
 }
