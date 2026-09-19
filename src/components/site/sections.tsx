@@ -132,9 +132,11 @@ export function ServiceCard({ service }: { service: Service }) {
 export function ServicesGrid({
   heading = "What We Repair",
   subheading = "Professional repair and maintenance services for the appliances and electronics you use every day.",
+  items = services,
 }: {
   heading?: string;
   subheading?: string;
+  items?: Service[];
 }) {
   return (
     <section className="section-y">
@@ -144,7 +146,7 @@ export function ServicesGrid({
           {subheading}
         </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
+          {items.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}
         </div>
@@ -156,7 +158,7 @@ export function ServicesGrid({
 /* ------------------------------- Featured AC ------------------------------ */
 
 export function FeaturedAC() {
-  const ac = services[0]!;
+  const ac = services.find((s) => s.slug === "ac-repair-installation")!;
   return (
     <section className="bg-navy text-navy-foreground">
       <div className="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
@@ -340,7 +342,7 @@ export function ServiceAreasSection() {
             Serving Rawalpindi &amp; Islamabad
           </h2>
           <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">
-            Located at Noor Plaza, Chandani Chowk, {business.name} provides appliance, AC and
+            Located at Al-Noor Plaza, Chandani Chowk, {business.name} provides appliance, AC and
             electronics repair services for customers in Rawalpindi and Islamabad.
           </p>
           <ul className="mt-6 space-y-3 text-sm">
