@@ -8,7 +8,7 @@ import { business } from "@/lib/business";
 
 const title = "Service Areas | Appliance Repair Rawalpindi & Islamabad";
 const description =
-  "Located at Noor Plaza, Chandani Chowk, Rawalpindi. We provide appliance, AC and electronics repair services for customers across Rawalpindi and Islamabad.";
+  "Located at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi. We provide appliance, AC and electronics repair services for customers across Rawalpindi and Islamabad.";
 
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
@@ -31,7 +31,7 @@ function ServiceAreasPage() {
       <PageHero
         eyebrow="Local Service"
         title="Serving Rawalpindi & Islamabad"
-        description="Find our location at Noor Plaza, Chandani Chowk, Rawalpindi."
+        description="Find our location at Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi."
         image={heroImages.serviceAreas}
         imageAlt={heroAlt.serviceAreas}
         breadcrumb={{ label: "Service Areas", to: "/service-areas" }}
