@@ -42,7 +42,7 @@ function Index() {
         <TrustBar />
       </Reveal>
       <Reveal>
-        <ServicesGrid items={homeServices} />
+        <ServicesGrid items={homeServices} showMore />
       </Reveal>
       <Reveal>
         <FeaturedAC />

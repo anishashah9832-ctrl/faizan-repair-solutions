@@ -13,12 +13,12 @@ import {
 export const business = {
   name: "Faizan Repairing Centre and Home Appliances",
   shortName: "Faizan Repairing Centre",
-  phoneDisplay: "0311 6568906",
-  phoneIntl: "+92 311 6568906",
-  phoneHref: "tel:+923116568906",
+  phoneDisplay: "0333 5551142",
+  phoneIntl: "+92 333 5551142",
+  phoneHref: "tel:+923335551142",
   email: "faizanwatto302@gmail.com",
   emailHref: "mailto:faizanwatto302@gmail.com",
-  whatsappNumber: "923116568906",
+  whatsappNumber: "923335551142",
   address: "Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi",
   addressShort: "Shop No.120, 1st Floor Al-Noor Plaza Chandani Chowk Rawalpindi",
   hours: "Available 24/7",
@@ -192,7 +192,7 @@ export const faqs = [
   },
   {
     q: "How can I request a repair?",
-    a: "You can call 0311 6568906 or contact us through WhatsApp.",
+    a: "You can call 0333 5551142 or contact us through WhatsApp.",
   },
   { q: "Are you available 24/7?", a: "The business is available 24/7." },
   {
