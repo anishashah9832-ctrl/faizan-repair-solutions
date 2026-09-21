@@ -9,7 +9,7 @@ import { business, waGeneral } from "@/lib/business";
 
 const title = "Contact | Faizan Repairing Centre, Rawalpindi";
 const description =
-  "Call 0311 6568906 or message us on WhatsApp for appliance, AC and electronics repair in Rawalpindi & Islamabad. Available 24/7.";
+  "Call 0333 5551142 or message us on WhatsApp for appliance, AC and electronics repair in Rawalpindi & Islamabad. Available 24/7.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

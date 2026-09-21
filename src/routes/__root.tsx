@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Faizan Repairing Centre and Home Appliances",
-          telephone: "+92 311 6568906",
+          telephone: "+92 333 5551142",
           email: "faizanwatto302@gmail.com",
           address: {
             "@type": "PostalAddress",

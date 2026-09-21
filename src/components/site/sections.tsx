@@ -133,10 +133,12 @@ export function ServicesGrid({
   heading = "What We Repair",
   subheading = "Professional repair and maintenance services for the appliances and electronics you use every day.",
   items = services,
+  showMore = false,
 }: {
   heading?: string;
   subheading?: string;
   items?: Service[];
+  showMore?: boolean;
 }) {
   return (
     <section className="section-y">
@@ -150,6 +152,16 @@ export function ServicesGrid({
             <ServiceCard key={s.slug} service={s} />
           ))}
         </div>
+        {showMore ? (
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/services"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 sm:w-auto"
+            >
+              See More Services <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );
